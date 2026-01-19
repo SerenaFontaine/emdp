@@ -1,4 +1,5 @@
-# CommonMark Parser (with GFM support)
+# Extended Markdown Parser
+![NPM Version](https://img.shields.io/npm/v/emdp?logoColor=red&color=red&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Femdp) ![NPM License](https://img.shields.io/npm/l/emdp?color=aqua)
 
 A CommonMark-compliant Markdown parser with an optional GitHub Flavored Markdown (GFM) mode, plus a small set of cmark-gfm compatible extensions.
 
