@@ -2,27 +2,33 @@
   "name": "emdp",
   "version": "1.0.0",
   "description": "A CommonMark-compliant Markdown parser with optional GFM support",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
     },
     "./gfm": {
-      "types": "./dist/gfm.d.ts",
-      "default": "./dist/gfm.js"
+      "types": "./dist/types/gfm.d.ts",
+      "import": "./dist/esm/gfm.js",
+      "require": "./dist/cjs/gfm.js"
     }
   },
   "bin": {
-    "mdparse": "dist/cli.js"
+    "mdparse": "dist/cjs/cli.js"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
-    "test": "node --test dist/**/*.test.js",
+    "build": "npm run build:types && npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "test": "node --test dist/cjs/**/*.test.js",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
