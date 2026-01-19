@@ -9,7 +9,7 @@ A CommonMark-compliant Markdown parser with an optional GitHub Flavored Markdown
 - **Footnotes** (GFM-style)
 - **HTML rendering** with safe-mode controls
 - **CLI** for pipeline usage
-- **TypeScript types** and ESM exports
+- **TypeScript types** with dual ESM/CJS exports
 
 ## Installation
 
@@ -23,6 +23,15 @@ npm install emdp
 
 ```js
 import { markdown } from 'emdp';
+
+const html = markdown('# Hello *world*');
+console.log(html);
+```
+
+### CommonJS
+
+```js
+const { markdown } = require('emdp');
 
 const html = markdown('# Hello *world*');
 console.log(html);
