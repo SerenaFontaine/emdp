@@ -1,0 +1,40 @@
+{
+  "name": "emdp",
+  "version": "1.0.0",
+  "description": "A CommonMark-compliant Markdown parser with optional GFM support",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./gfm": {
+      "types": "./dist/gfm.d.ts",
+      "default": "./dist/gfm.js"
+    }
+  },
+  "bin": {
+    "mdparse": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test dist/**/*.test.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "markdown",
+    "commonmark",
+    "gfm",
+    "github-flavored-markdown",
+    "parser"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^25.0.9",
+    "typescript": "^5.3.0"
+  }
+}
